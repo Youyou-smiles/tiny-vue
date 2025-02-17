@@ -6,22 +6,15 @@
     <br />
     <tiny-button @click="addNode">新建子节点</tiny-button>
     <tiny-button @click="editNode">编辑节点</tiny-button>
-    <tiny-button @click="saveNode">5s后保存节点</tiny-button> <br />
+    <tiny-button @click="saveNode">5s 后保存节点</tiny-button> <br />
     <br />
-    <tiny-tree
-      ref="treeRef"
-      show-checkbox
-      node-key="id"
-      :data="data"
-      current-node-key="1"
-      default-expand-all
-    ></tiny-tree>
+    <tiny-tree ref="treeRef" node-key="id" :data="data" current-node-key="1" default-expand-all></tiny-tree>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { Tree as TinyTree, Button as TinyButton } from '@opentiny/vue'
+import { TinyTree, TinyButton } from '@opentiny/vue'
 
 const data = ref([
   {
@@ -69,7 +62,7 @@ function editNode() {
   treeRef.value.editNode(node)
 }
 function saveNode() {
-  // 离开编辑节点，会立即保存。 也可以通过以下手动触发保存
+  // 离开编辑节点，会立即保存。也可以通过以下手动触发保存
   setTimeout(() => treeRef.value.saveNode(), 5000)
 }
 </script>

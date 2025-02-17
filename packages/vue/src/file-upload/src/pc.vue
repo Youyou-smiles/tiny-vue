@@ -35,15 +35,12 @@ import {
   iconPlus,
   iconHelpCircle
 } from '@opentiny/vue-icon'
-import CryptoJS from 'crypto-js/core.js'
-import 'crypto-js/sha256.js'
-import 'crypto-js/lib-typedarrays.js'
 import Streamsaver from 'streamsaver'
 import type { IFileUploadApi } from '@opentiny/vue-renderless/types/file-upload.type'
 
 const TinyIconAttachment = iconAttachment()
 const TinyIconSuccessful = iconSuccessful()
-const TinyIconCloseCircle = iconClose()
+const TinyIconClose = iconClose()
 const TinyIconDownload = iconDownload()
 const TinyIconFileCloudupload = iconFileCloudupload()
 const TinyIconPlus = iconPlus()
@@ -93,14 +90,14 @@ export default defineComponent({
     'compact',
     'promptTip'
   ],
-  setup(props, context) {
-    // 内置crypto-js和streamsaver进行上传下载
+  emits: ['change', 'hash-progress', 'progress', 'success', 'error', 'remove', 'download'],
+  setup(props, context): any {
     return setup({
       props,
       context,
       renderless,
       api,
-      extendOptions: { Modal, CryptoJS, Streamsaver }
+      extendOptions: { Modal, Streamsaver }
     }) as unknown as IFileUploadApi
   },
   components: {
@@ -239,7 +236,7 @@ export default defineComponent({
       ),
       showDel && (
         <span class="thumb-icon" title={t('ui.fileUpload.deleteFile')} onClick={() => handleRemove(file)}>
-          <TinyIconCloseCircle class="close-icon" />
+          <TinyIconClose class="close-icon" />
         </span>
       )
     ]

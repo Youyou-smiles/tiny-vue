@@ -28,7 +28,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Form as TinyForm, FormItem as TinyFormItem, Input as TinyInput, Button as TinyButton } from '@opentiny/vue'
+import { TinyForm, TinyFormItem, TinyInput, TinyButton } from '@opentiny/vue'
 import { iconError } from '@opentiny/vue-icon'
 
 const TinyIconError = iconError()
@@ -42,12 +42,12 @@ const createData = ref({
 const rules = ref({
   name: [
     { required: true, message: '必填', trigger: 'blur' },
-    { min: 2, max: 11, message: '长度必须不小于2', trigger: ['change', 'blur'] }
+    { min: 2, max: 11, message: '长度必须不小于 2', trigger: ['change', 'blur'] }
   ],
   age: { required: true },
   nickname: [
     { required: true, message: '昵称必填' },
-    { min: 2, max: 11, message: '昵称长度必须不小于2切不大于11', trigger: ['change', 'blur'] }
+    { min: 2, max: 11, message: '昵称长度必须不小于 2 切不大于 11', trigger: ['change', 'blur'] }
   ]
 })
 

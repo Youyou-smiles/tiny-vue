@@ -10,9 +10,18 @@
  *
  */
 
-import { isEqual, contains, handleGroupDisabled, selectOptionClick, queryChange, toggleEvent, initValue } from './index'
+import {
+  isEqual,
+  contains,
+  handleGroupDisabled,
+  hoverItem,
+  selectOptionClick,
+  queryChange,
+  toggleEvent,
+  initValue
+} from './index'
 
-export const api = ['state', 'visible', 'selectOptionClick']
+export const api = ['state', 'visible', 'hoverItem', 'selectOptionClick']
 
 const initState = ({ reactive, computed, props, api, markRaw, select, parent }) => {
   const state = reactive({
@@ -27,7 +36,7 @@ const initState = ({ reactive, computed, props, api, markRaw, select, parent }) 
     disabled: computed(() => props.disabled || state.groupDisabled),
     isObject: computed(() => Object.prototype.toString.call(props.value).toLowerCase() === '[object object]'),
     currentLabel: computed(() => props.label || (state.isObject ? '' : props.value)),
-    currentValue: computed(() => props.value || props.label || ''),
+    currentValue: props.value || props.label || '',
 
     itemSelected: computed(() => {
       if (!select.multiple) {
@@ -59,6 +68,7 @@ const initApi = ({ api, props, state, select, constants, vm }) => {
     state,
     isEqual: isEqual({ select, state }),
     contains: contains({ select, state }),
+    hoverItem: hoverItem({ select, props, state }),
     queryChange: queryChange({ select, props, state }),
     selectOptionClick: selectOptionClick({ constants, vm, props, state, select }),
     handleGroupDisabled: handleGroupDisabled({ state, vm }),
@@ -80,7 +90,7 @@ const initWatch = ({ watch, props, state, select, constants }) => {
     () => props.value,
     (value, oldVal) => {
       const { remote, valueKey } = select
-
+      state.currentValue = value || props.label || ''
       if (!props.created && !remote) {
         if (
           valueKey &&

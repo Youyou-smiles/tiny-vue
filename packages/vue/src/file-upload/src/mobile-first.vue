@@ -20,9 +20,6 @@ import {
   IconStartCircle,
   IconHelpQuery
 } from '@opentiny/vue-icon'
-import CryptoJS from 'crypto-js/core'
-import 'crypto-js/sha256.js'
-import 'crypto-js/lib-typedarrays.js'
 import Streamsaver from 'streamsaver'
 import Button from '@opentiny/vue-button'
 import Input from '@opentiny/vue-input'
@@ -93,7 +90,7 @@ export default defineComponent({
       context,
       renderless,
       api,
-      extendOptions: { Modal, CryptoJS, Streamsaver }
+      extendOptions: { Modal, Streamsaver }
     }) as unknown as IFileUploadApi
   },
   components: {
@@ -673,7 +670,7 @@ export default defineComponent({
       <div {...attrs} data-tag="tiny-file-upload" class={isDragSingle ? 'relative inline-block' : ''}>
         {getDefaultTitle({ listType, title, showTitle, displayOnly, mode })}
         {noticePC}
-        {isText ? (slots.trigger ? [createUploadComponent()] : createUploadComponent()) : null}
+        {isText && !displayOnly ? (slots.trigger ? [createUploadComponent()] : createUploadComponent()) : null}
         {noticeMF}
         {uploadList}
         {previewComponent}

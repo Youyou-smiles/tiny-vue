@@ -1,6 +1,6 @@
 <template>
   <div class="demo-select">
-    <p>场景1：下拉树单选</p>
+    <p>场景 1：下拉树单选</p>
     <br />
     <tiny-select
       v-model="treeValue1"
@@ -10,7 +10,7 @@
       :tree-op="treeOp"
     ></tiny-select>
     <br /><br />
-    <p>场景2：下拉树多选</p>
+    <p>场景 2：下拉树多选</p>
     <br />
     <tiny-select
       v-model="treeValue2"
@@ -21,7 +21,7 @@
       :tree-op="treeOp"
     ></tiny-select>
     <br /><br />
-    <p>场景3：下拉树可搜索</p>
+    <p>场景 3：下拉树可搜索</p>
     <br />
     <tiny-select
       v-model="treeValue3"
@@ -38,7 +38,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Select as TinySelect } from '@opentiny/vue'
+import { TinySelect } from '@opentiny/vue'
 
 const treeValue1 = ref(10)
 const treeValue2 = ref([9, 6])

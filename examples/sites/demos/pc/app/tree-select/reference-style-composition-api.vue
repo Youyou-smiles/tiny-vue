@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>场景1：自定义图标 + 自定义样式</p>
+    <p>场景 1：自定义图标 + 自定义样式</p>
     <tiny-tree-select
       v-model="value"
       :tree-op="treeOp"
@@ -8,21 +8,21 @@
       :drop-style="{ width: '200px', 'min-width': '200px' }"
     >
     </tiny-tree-select>
-    <p>场景2：标签类型</p>
+    <p>场景 2：标签类型</p>
     <tiny-tree-select v-model="value2" :tree-op="treeOp" multiple tag-type="warning"></tiny-tree-select>
-    <p>场景3：下划线类型</p>
+    <p>场景 3：下划线类型</p>
     <tiny-tree-select v-model="value" :tree-op="treeOp" input-box-type="underline"></tiny-tree-select>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { TreeSelect as TinyTreeSelect } from '@opentiny/vue'
+import { TinyTreeSelect } from '@opentiny/vue'
 import { iconPopup } from '@opentiny/vue-icon'
 
 const tinyIconPopup = iconPopup()
 const value = ref('')
-const value2 = ref([])
+const value2 = ref([9])
 
 const treeOp = ref({
   data: [

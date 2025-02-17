@@ -38,7 +38,7 @@ export default {
       },
       desc: {
         'zh-CN':
-          '<p>通过属性 <code>min-crop-box-width</code> 、<code>min-crop-box-height</code> 设置裁剪框最小宽高。设置后，调整裁剪框宽高时，调整到最小值后将不能再调整。\n通过属性 <code>min-container-width</code> 、<code>min-container-height</code> 设置容器的最小宽度,最小高度。</p>\n',
+          '<p>通过属性 <code>min-crop-box-width</code> 、<code>min-crop-box-height</code> 设置裁剪框最小宽高。设置后，调整裁剪框宽高时，调整到最小值后将不能再调整。\n通过属性 <code>min-container-width</code> 、<code>min-container-height</code> 设置容器的最小宽度，最小高度。</p>\n',
         'en-US':
           '<p>Set the minimum width and height of the cropping frame through the <code>min-crop-box-width</code> and <code>min-crop-box-height</code> attributes. After this parameter is set, the width and height of the cropping box cannot be adjusted after the width and height are adjusted to the minimum value. \n Set the minimum width and height of the container through the <code>min-container-width</code> and <code>min-container-height</code> attributes. </p>\n'
       },
@@ -215,7 +215,7 @@ export default {
       },
       desc: {
         'zh-CN':
-          '<p>通过调用 <code>replace</code> 方法可以替换图像的 src 并重新构建 cropper 。 通过 <code>rotatable</code> 属性控制图片旋转，默认为 true。</p>\n',
+          '<p>通过调用 <code>replace</code> 方法可以替换图像的 src 并重新构建 cropper。通过 <code>rotatable</code> 属性控制图片旋转，默认为 true。</p>\n',
         'en-US':
           '<p>Invoke the <code>replace</code> method to replace the image src and rebuild the cropper. The <code>rotatable</code> attribute is used to control image rotation. The default value is true. </p>\n'
       },
@@ -281,7 +281,7 @@ export default {
       },
       desc: {
         'zh-CN':
-          '<p>当一个 cropper 实例完全构建时，通过触发 <code>disable</code> 方法禁用裁剪框，当触发 <code>enable</code> 启用裁剪框。</p>\n',
+          '<p>当一个 cropper 实例完全构建时，通过触发 <code>disable</code> 方法禁用裁剪框，触发 <code>enable</code> 方法启用裁剪框。</p>\n',
         'en-US':
           '<p>When a cropper instance is completely built, the <code>disable</code> method is triggered to disable the cropping box. When the <code>enable</code> method is triggered to enable the cropping box.</p>\n'
       },
@@ -295,7 +295,7 @@ export default {
       },
       desc: {
         'zh-CN':
-          '<div class="tip custom-block"><p class="custom-block-title">TIP</p>\n<p>说明当画布或剪切框开始发生变化时触发 <code>cropstart</code> 事件\n当画布或剪切框正在发生变化时触发 <code>cropmove</code> 事件\n当画布或剪切框发生变化结束时触发 <code>cropend</code> 事件\n当画布或裁剪框发生改变时触发 <code>crop</code> 事件\n通过触发 <code>getCanvasData</code> 获取画布 Canvas（图像包装器）位置和大小数据。</p>\n</div>\n',
+          '<div class="tip custom-block"><p class="custom-block-title">TIP</p>\n<p>说明当画布或剪切框开始发生变化时触发 <code>cropstart</code> 事件，当画布或剪切框正在发生变化时触发 <code>cropmove</code> 事件，当画布或剪切框发生变化结束时触发 <code>cropend</code> 事件，当画布或裁剪框发生改变时触发 <code>crop</code> 事件，通过触发 <code>getCanvasData</code> 获取画布 Canvas（图像包装器）位置和大小数据。</p>\n</div>\n',
         'en-US':
           '<div class="tip custom-block"><p class="custom-block-title">TIP</p>\n<p> Description: The <code>cropstart</code> event is triggered when the canvas or clipping box starts to change.\nThe <code>cropmove</code> event is triggered when the canvas or clipping box is changed.\nThe <code>cropen event is triggered when the canvas or clipping box ends. d</code>Event\nThe <code>crop</code> event is triggered when the canvas or crop box changes. \nThe <code>getCanvasData</code> event is triggered to obtain the position and size data of the canvas (image wrapper). </p>\n</div>\n'
       },

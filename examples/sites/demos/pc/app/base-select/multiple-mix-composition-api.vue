@@ -84,41 +84,35 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import {
-  BaseSelect as TinyBaseSelect,
-  Option as TinyOption,
-  Form as TinyForm,
-  FormItem as TinyFormItem,
-  Button as TinyButton
-} from '@opentiny/vue'
+import { TinyBaseSelect, TinyOption, TinyForm, TinyFormItem, TinyButton } from '@opentiny/vue'
 
 const options = ref([
   {
-    value: '选项1',
+    value: '选项 1',
     label: '北京'
   },
   {
-    value: '选项2',
+    value: '选项 2',
     label: '上海'
   },
   {
-    value: '选项3',
+    value: '选项 3',
     label: '天津'
   },
   {
-    value: '选项4',
+    value: '选项 4',
     label: '重庆'
   },
   {
-    value: '选项5',
+    value: '选项 5',
     label: '深圳'
   },
   {
-    value: '选项6',
+    value: '选项 6',
     label: '杭州'
   },
   {
-    value: '选项7',
+    value: '选项 7',
     label: '宇宙无敌老面小馒头'
   }
 ])
@@ -128,7 +122,7 @@ const top = ref(false)
 const inline = ref(false)
 const size = ref('')
 const formData = reactive({
-  select1: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7']
+  select1: ['选项 1', '选项 2', '选项 3', '选项 4', '选项 5', '选项 6', '选项 7']
 })
 </script>
 

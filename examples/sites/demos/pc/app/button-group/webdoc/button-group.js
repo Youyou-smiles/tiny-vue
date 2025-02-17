@@ -18,8 +18,8 @@ export default {
     {
       demoId: 'size',
       name: {
-        'zh-CN': '组件尺寸大小',
-        'en-US': 'Set Component Size'
+        'zh-CN': '组件尺寸',
+        'en-US': 'Component Size'
       },
       desc: {
         'zh-CN':
@@ -37,7 +37,7 @@ export default {
       },
       desc: {
         'zh-CN':
-          '<p>通过 <code>disabled</code> 设置按钮组是否禁用，数据项设置 <code>disabled</code> 属性可以禁用单个按钮，数据项设置 <code>tip</code> 属性(v3.17.0版本增加此功能)增加按钮悬浮提示功能。</p>',
+          '<p>通过 <code>disabled</code> 设置按钮组是否禁用，数据项设置 <code>disabled</code> 属性可以禁用单个按钮，数据项设置 <code>tip</code> 属性 (v3.17.0 版本增加此功能) 增加按钮悬浮提示功能。</p>',
         'en-US':
           '<p>You can set whether to disable the button group through <code>disabled</code>. You can set the <code>disabled</code> attribute to disable a single button. You can set the <code>tip</code> attribute to add the reason for disabling the button. </p></p>'
       },
@@ -81,20 +81,6 @@ export default {
           '<p>By setting <code>show more</code> to display more buttons, when the number of buttons exceeds the set value, more buttons will be displayed. </p>'
       },
       codeFiles: ['show-more.vue']
-    },
-    {
-      demoId: 'show-edit',
-      name: {
-        'zh-CN': '编辑按钮',
-        'en-US': 'Display Edit Button'
-      },
-      desc: {
-        'zh-CN':
-          '<p>设置了显示更多按钮后，可以通过 <code>show-edit</code> 设置是否显示编辑按钮。点击编辑按钮后触发 <code>edit</code> 事件。</p>',
-        'en-US':
-          '<p>After setting up to display more buttons, You can set whether to display the edit button through <code>show edit</code> . After clicking the edit button, the <code>edit</code> event is triggered.</p>'
-      },
-      codeFiles: ['show-edit.vue']
     },
     {
       demoId: 'slot-default',
@@ -145,8 +131,7 @@ export default {
         'en-US': ''
       },
       desc: {
-        'zh-CN':
-          '<p>通过 <code>data</code> 的 <code>sup</code> 属性配置选块角标，详见 <a href="IButtonGroupData">IButtonGroupData</a> 。</p>',
+        'zh-CN': '<p>通过 <code>data</code> 的 <code>sup</code> 属性配置选块角标。</p>',
         'en-US': ''
       },
       codeFiles: ['sup.vue']

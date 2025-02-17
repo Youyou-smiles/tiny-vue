@@ -83,15 +83,15 @@
         <tiny-tag
           v-if="hoverExpand"
           :class="['tiny-cascader__tags-collapse', { 'is-hidden': state.isHidden }]"
-          type="info"
+          :type="state.tagTypeWhenMultiple"
           :closable="false"
           :size="state.tagSize"
-          >+ {{ state.collapseTagsLength }}</tiny-tag
-        >
+          >+ {{ state.collapseTagsLength }}
+        </tiny-tag>
         <tiny-tag
           v-for="(tag, index) in state.presentTags"
           :key="tag.key"
-          type="info"
+          :type="state.tagTypeWhenMultiple"
           :size="state.tagSize"
           :hit="tag.hitState"
           :closable="tag.closable"
@@ -148,6 +148,7 @@
           @expand-change="handleExpandChange"
           @close="toggleDropDownVisible(false)"
           @load-data="computePresentContent"
+          :onlyUsePanel="false"
         ></tiny-cascader-panel>
         <tiny-scrollbar
           ref="suggestionPanel"
@@ -189,7 +190,7 @@
 import { renderless, api } from '@opentiny/vue-renderless/cascader/vue'
 import { props, setup, defineComponent, directive } from '@opentiny/vue-common'
 
-import Clickoutside from '@opentiny/vue-renderless/common/deps/clickoutside'
+import { Clickoutside } from '@opentiny/vue-directive'
 import { HighlightQuery } from '@opentiny/vue-directive'
 
 // 没有进行vue3，vue2适配

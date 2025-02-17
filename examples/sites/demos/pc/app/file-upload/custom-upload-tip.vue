@@ -11,18 +11,18 @@
       <tiny-button>选取文件</tiny-button>
     </template>
     <template #tip>
-      <div class="tiny-upload__tip">只能上传 jpg/png 文件，且不超过500 kb</div>
+      <div class="tiny-upload__tip">只能上传 jpg/png 文件，且不超过 500 kb</div>
     </template>
   </tiny-file-upload>
 </template>
 
 <script>
-import { FileUpload, Button } from '@opentiny/vue'
+import { TinyFileUpload, TinyButton } from '@opentiny/vue'
 
 export default {
   components: {
-    TinyFileUpload: FileUpload,
-    TinyButton: Button
+    TinyFileUpload,
+    TinyButton
   },
   data() {
     return {

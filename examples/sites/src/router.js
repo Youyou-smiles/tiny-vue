@@ -1,9 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Layout from '@/views/layout/layout.vue'
-import { LANG_KEY, LANG_PATH_MAP, ZH_CN_LANG, CURRENT_THEME_KEY, THEME_ROUTE_MAP, SMB_THEME } from './const'
-import { $local } from './tools/storage'
+import { LANG_PATH_MAP, ZH_CN_LANG, DEFAULT_THEME } from './const'
 
-const Components = () => import('@/views/components/components.vue')
+const Components = () => import('@/views/components-doc/index.vue')
 const Docs = () => import('@/views/docs/docs.vue')
 const Overview = () => import('@/views/overview.vue')
 
@@ -12,14 +11,21 @@ const context = import.meta.env.VITE_CONTEXT
 let routes = [
   // 组件总览
   {
-    path: `${context}:all?/:lang/:theme/overview`,
+    path: `${context}:all?/zh-CN/:theme/overview`,
     component: Layout,
     name: 'overview',
     children: [{ name: 'Overview', path: '', component: Overview, meta: { title: '组件总览 | TinyVue' } }]
   },
+  // 文档
+  {
+    path: `${context}:all?/:lang/:theme/docs/:docId`,
+    component: Layout,
+    name: 'docs',
+    children: [{ name: 'Docs', path: '', component: Docs }]
+  },
   // 组件
   {
-    path: `${context}:all?/:lang/:theme/components/:cmpId`,
+    path: `${context}:all?/zh-CN/:theme/components/:cmpId`,
     component: Layout,
     name: 'components',
     children: [{ name: 'Components', path: '', component: Components }]
@@ -28,11 +34,8 @@ let routes = [
   {
     path: '/:pathMatch(.*)*',
     redirect: () => {
-      const lang = $local[LANG_KEY]
-      const langPath = LANG_PATH_MAP[lang] || LANG_PATH_MAP[ZH_CN_LANG]
-      const themeKey = localStorage.getItem(CURRENT_THEME_KEY)
-      const theme = THEME_ROUTE_MAP[themeKey] || THEME_ROUTE_MAP[SMB_THEME]
-      return { path: `${context}${langPath}/${theme}/overview` }
+      const langPath = LANG_PATH_MAP[ZH_CN_LANG]
+      return { path: `${context}${langPath}/${DEFAULT_THEME}/overview` }
     }
   }
 ]

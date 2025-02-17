@@ -17,17 +17,17 @@
 
 <script setup>
 import { ref } from 'vue'
-import { BaseSelect as TinyBaseSelect, Modal } from '@opentiny/vue'
+import { TinyBaseSelect, TinyModal } from '@opentiny/vue'
 
 const buildOptions = () =>
-  Array.from({ length: 100000 }).map((item, i) => JSON.parse(`{"value":"选项${i}","label":"北京${i}"}`))
+  Array.from({ length: 100000 }).map((item, i) => JSON.parse(`{"value":"选项 ${i}","label":"北京 ${i}"}`))
 
 const value1 = ref('')
 const value2 = ref([])
 const options = ref(buildOptions())
 
 const onChange = (value) => {
-  Modal.message({
+  TinyModal.message({
     message: JSON.stringify(value),
     status: 'info'
   })

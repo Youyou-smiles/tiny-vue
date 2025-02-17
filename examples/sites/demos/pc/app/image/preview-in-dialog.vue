@@ -1,6 +1,6 @@
 <template>
   <div>
-    <tiny-button @click="show = true"> 弹出Dialog </tiny-button>
+    <tiny-button @click="show = true"> 弹出 Dialog </tiny-button>
     <tiny-dialog-box class="demo-image__preview-dialog-box" v-model:visible="show" title="消息" width="30%">
       <div class="demo-image__preview__in">
         <tiny-image :src="url" :preview-src-list="srcList"></tiny-image>
@@ -13,13 +13,13 @@
 </template>
 
 <script>
-import { Button, DialogBox, Image } from '@opentiny/vue'
+import { TinyButton, TinyDialogBox, TinyImage } from '@opentiny/vue'
 
 export default {
   components: {
-    TinyButton: Button,
-    TinyDialogBox: DialogBox,
-    TinyImage: Image
+    TinyButton,
+    TinyDialogBox,
+    TinyImage
   },
   data() {
     return {

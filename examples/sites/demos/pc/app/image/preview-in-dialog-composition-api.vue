@@ -1,5 +1,5 @@
 <template>
-  <tiny-button @click="show = true"> 弹出Dialog </tiny-button>
+  <tiny-button @click="show = true"> 弹出 Dialog </tiny-button>
   <tiny-dialog-box v-model:visible="show" class="demo-image__preview-dialog-box" title="消息" width="30%">
     <div class="demo-image__preview__in">
       <tiny-image :src="url" :preview-src-list="srcList"></tiny-image>
@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Button as TinyButton, DialogBox as TinyDialogBox, Image as TinyImage } from '@opentiny/vue'
+import { TinyButton, TinyDialogBox, TinyImage } from '@opentiny/vue'
 
 const show = ref(false)
 const url = ref(`${import.meta.env.VITE_APP_BUILD_BASE_URL}static/images/mountain.png`)

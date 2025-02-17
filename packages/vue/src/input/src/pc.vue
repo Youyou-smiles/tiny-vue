@@ -11,6 +11,7 @@
  -->
 <template>
   <div
+    v-bind="a($attrs, ['class'])"
     :class="[
       $attrs.class,
       type === 'textarea' ? 'tiny-textarea' : 'tiny-input',
@@ -28,7 +29,6 @@
         'tiny-input-underline': inputBoxType === 'underline'
       }
     ]"
-    :style="$attrs.style"
     @mouseenter="
       ($event) => {
         state.hovering = true
@@ -166,16 +166,11 @@
         <slot name="panel"></slot>
       </div>
     </template>
-    <span
-      :class="[
-        autosize ? 'tiny-textarea-autosize-display-only' : 'tiny-textarea-display-only',
-        hoverExpand && 'tiny-textarea__inner-con'
-      ]"
-      v-else
-    >
+    <span v-else :class="['tiny-textarea-display-only', hoverExpand && 'tiny-textarea__inner-con']">
       <tiny-tooltip
         v-if="state.isDisplayOnly"
         :disabled="!showTooltip"
+        pre
         effect="light"
         :content="state.displayOnlyTooltip"
         placement="top"
@@ -187,7 +182,7 @@
             <span v-if="state.showMoreBtn" @click="state.showDisplayOnlyBox = true" class="more-btn"
               >{{ t('ui.input.more') }}></span
             >
-            {{ state.displayOnlyText }}
+            <span>{{ state.displayOnlyText }}</span>
           </span>
         </div>
       </tiny-tooltip>
@@ -198,7 +193,7 @@
         :append-to-body="true"
         @update:visible="state.showDisplayOnlyBox = $event"
       >
-        <div>{{ state.displayOnlyText }}</div>
+        <pre>{{ state.displayOnlyText }}</pre>
         <template #footer>
           <tiny-button @click="state.showDisplayOnlyBox = false">{{ t('ui.input.close') }}</tiny-button>
         </template>
@@ -250,7 +245,7 @@
 <script>
 import { renderless, api } from '@opentiny/vue-renderless/input/vue'
 import { props, setup, defineComponent, directive } from '@opentiny/vue-common'
-import Clickoutside from '@opentiny/vue-renderless/common/deps/clickoutside'
+import { Clickoutside } from '@opentiny/vue-directive'
 import TinyTallStorage from './tall-storage.vue'
 import { IconClose, IconEyeopen, IconEyeclose } from '@opentiny/vue-icon'
 import Tooltip from '@opentiny/vue-tooltip'
@@ -260,6 +255,7 @@ import '@opentiny/vue-theme/input/index.less'
 import '@opentiny/vue-theme/textarea/index.less'
 
 export default defineComponent({
+  inheritAttrs: false, // 勿删，兼容灵雀特殊场景,MR#1861
   emits: [
     'update:modelValue',
     'change',

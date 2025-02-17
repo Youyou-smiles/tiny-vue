@@ -1,6 +1,6 @@
 <template>
   <div class="tiny-steps-demo-space">
-    <p>设置节点宽度为200像素：</p>
+    <p>设置节点宽度为 200 像素：</p>
     <br />
     <tiny-steps space="200" :data="stepsData" :active="active" @click="onClick"></tiny-steps>
     <br /><br />
@@ -12,21 +12,21 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Steps as TinySteps } from '@opentiny/vue'
+import { TinySteps } from '@opentiny/vue'
 
 const stepsData = ref([
   {
-    name: 'name属性内容1',
+    name: 'name 属性内容 1',
     count: 0,
     status: 'done'
   },
   {
-    name: 'name属性内容2',
+    name: 'name 属性内容 2',
     count: 9,
     status: 'doing'
   },
   {
-    name: 'name属性内容3',
+    name: 'name 属性内容 3',
     count: 0,
     status: 'undo'
   }

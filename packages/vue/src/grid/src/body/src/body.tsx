@@ -1,3 +1,4 @@
+/* eslint-disable unused-imports/no-unused-vars */
 /**
  * MIT License
  *
@@ -24,7 +25,7 @@
  */
 
 import { isFunction, find } from '@opentiny/vue-renderless/grid/static/'
-import { isNull } from '@opentiny/vue-renderless/common/type'
+import { isNull } from '@opentiny/utils'
 import {
   updateCellTitle,
   emitEvent,
@@ -57,6 +58,7 @@ const classMap = {
   colActived: 'col__actived',
   rowNew: 'row__new',
   rowSelected: 'row__selected',
+  rowRadio: 'row__radio',
   rowActived: 'row__actived',
   isScrollload: 'is__scrollload'
 }
@@ -133,7 +135,8 @@ function buildColumnProps(args) {
 
 function buildColumnChildren(args) {
   let { h, hasDefaultTip, params, row, validError, column, $table } = args
-  let { showEllipsis, showTip, showTitle, showTooltip, validStore, dropConfig } = args
+  let { showEllipsis, showTip, showTitle, showTooltip, validStore } = args
+  const dropConfig = args.dropConfig || {}
   const { validOpts } = $table
   let cellNode: any[] = []
   let validNode: any = null
@@ -548,7 +551,8 @@ function renderRow(args) {
           {
             [`row__level-${rowLevel}`]: treeConfig,
             [classMap.rowNew]: editStore.insertList.includes(row),
-            [classMap.rowSelected]: selection.includes(row) || selectRow === row,
+            [classMap.rowSelected]: selection.includes(row),
+            [classMap.rowRadio]: selectRow === row,
             [classMap.rowActived]: rowActived
           },
           rowClassName
@@ -748,11 +752,12 @@ function renderDefEmpty(h) {
 }
 
 const syncHeaderAndFooterScroll = ({ bodyElem, footerElem, headerElem, isX }) => {
+  const scrollLeft = bodyElem.scrollLeft
   if (isX && headerElem) {
-    headerElem.scrollLeft = bodyElem.scrollLeft
+    headerElem.scrollLeft = scrollLeft
   }
   if (isX && footerElem) {
-    footerElem.scrollLeft = bodyElem.scrollLeft
+    footerElem.scrollLeft = scrollLeft
   }
 }
 
@@ -867,10 +872,6 @@ export default defineComponent({
     // 空数据元素
     elemStore[`${keyPrefix}emptyBlock`] = $refs.emptyBlock
 
-    // 表体第一层div监听滚动事件
-    $el.onscroll = this.scrollEvent
-    $el._onscroll = this.scrollEvent
-
     if (dropConfig) {
       const { plugin, row = true } = dropConfig
       plugin && row && (this.rowSortable = $table.rowDrop(this.$el))
@@ -904,7 +905,10 @@ export default defineComponent({
       'div',
       {
         ref: 'body',
-        class: ['tiny-grid__body-wrapper', 'body__wrapper', { [classMap.isScrollload]: scrollLoad }]
+        class: ['tiny-grid__body-wrapper', 'body__wrapper', { [classMap.isScrollload]: scrollLoad }],
+        on: {
+          scroll: this.scrollEvent
+        }
       },
       [
         // 表格主体内容x轴方向虚拟滚动条占位元素

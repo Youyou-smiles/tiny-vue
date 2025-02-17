@@ -19,13 +19,13 @@
 </template>
 
 <script>
-import { Radio, RadioButton, RadioGroup } from '@opentiny/vue'
+import { TinyRadio, TinyRadioButton, TinyRadioGroup } from '@opentiny/vue'
 
 export default {
   components: {
-    TinyRadio: Radio,
-    TinyRadioButton: RadioButton,
-    TinyRadioGroup: RadioGroup
+    TinyRadio,
+    TinyRadioButton,
+    TinyRadioGroup
   },
   data() {
     return {
@@ -33,9 +33,9 @@ export default {
       radio1: '6',
       radio2: '1',
       dataArr: [
-        { lable: '3', value: '备选项1' },
-        { lable: '6', value: '备选项2' },
-        { lable: '9', value: '备选项3' }
+        { lable: '3', value: '备选项 1' },
+        { lable: '6', value: '备选项 2' },
+        { lable: '9', value: '备选项 3' }
       ]
     }
   }

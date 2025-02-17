@@ -1,26 +1,26 @@
 <template>
   <div>
-    <p>场景1： 未选择</p>
+    <p>场景 1：未选择</p>
     <tiny-tree-select v-model="value1" :tree-op="treeOp" disabled></tiny-tree-select>
-    <p>场景2： 单选</p>
+    <p>场景 2：单选</p>
     <tiny-tree-select v-model="value2" :tree-op="treeOp" disabled></tiny-tree-select>
-    <p>场景3： 多选</p>
+    <p>场景 3：多选</p>
     <tiny-tree-select v-model="value3" :tree-op="treeOp" multiple disabled></tiny-tree-select>
   </div>
 </template>
 
 <script>
-import { TreeSelect } from '@opentiny/vue'
+import { TinyTreeSelect } from '@opentiny/vue'
 
 export default {
   components: {
-    TinyTreeSelect: TreeSelect
+    TinyTreeSelect
   },
   data() {
     return {
       value1: '',
       value2: 1,
-      value3: [1, 4, 9, 10],
+      value3: [9, 6],
       treeOp: {
         data: [
           {

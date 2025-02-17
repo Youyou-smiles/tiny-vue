@@ -10,7 +10,7 @@
  *
  */
 import { $props, $prefix, $setup, defineComponent } from '@opentiny/vue-common'
-import template from 'virtual-template?pc|mobile|mobile-first'
+import template from 'virtual-template?pc|mobile-first'
 
 export const buttonProps = {
   ...$props,
@@ -55,7 +55,10 @@ export const buttonProps = {
     }
   },
   /** 是否圆角按钮 */
-  round: Boolean,
+  round: {
+    type: Boolean,
+    default: undefined
+  },
   /** 是否朴素按钮  */
   plain: Boolean,
   /** 是否圆形按钮  */

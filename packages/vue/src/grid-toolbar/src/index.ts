@@ -22,7 +22,7 @@
  * SOFTWARE.
  *
  */
-import { isNumber } from '@opentiny/vue-renderless/common/type'
+import { isNumber } from '@opentiny/utils'
 import { iconMinscreen, iconFullscreen } from '@opentiny/vue-icon'
 import { h, hooks, $prefix, defineComponent, appProperties, $props } from '@opentiny/vue-common'
 import { toStringJSON, isEmpty, isPlainObject, toJSONString, find } from '@opentiny/vue-renderless/grid/static/'
@@ -89,6 +89,7 @@ function renderCustomWrapper({ _vm, settingStore, settingsBtnOns, tableFullColum
       ref: 'customWrapper'
     },
     [
+      // TODO: 此处应使用图标按钮，但saas主题图标按钮样式有问题。
       h('div', { class: 'tiny-grid-custom__setting-btn', on: settingsBtnOns }, [
         setting?.simple
           ? h('tiny-grid-custom-select', {
@@ -423,6 +424,9 @@ export default defineComponent({
       custom && custom.updateSelectedTemplate(val)
     },
     settingBtnClick() {
+      if (this.setting?.simple) {
+        return
+      }
       return this.setting && this.setting.customSetting
         ? this.setting.settingBtnClickFn()
         : this.handleClickCustomEvent()
@@ -540,7 +544,6 @@ export default defineComponent({
         })
       }
     },
-    // NEXT 未用到
     updateColumn(fullColumn) {
       this.tableFullColumn = fullColumn
     },

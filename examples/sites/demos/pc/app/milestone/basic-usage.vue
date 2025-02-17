@@ -1,42 +1,42 @@
 <template>
   <div class="demo-milestone">
-    <div>场景1： 默认</div>
+    <div>场景 1：默认</div>
     <br />
     <tiny-milestone :data="milestoneData"></tiny-milestone>
     <br />
     <br />
-    <div>场景2： 自定义状态色</div>
+    <div>场景 2：自定义状态色</div>
     <br />
     <tiny-milestone :data="milestoneData" :milestones-status="statusMap"></tiny-milestone>
     <br />
     <br />
-    <div>场景3： 自定义状态色 + 实心显示</div>
+    <div>场景 3：自定义状态色 + 实心显示</div>
     <br />
     <tiny-milestone :data="milestoneData" :milestones-status="statusMap" solid></tiny-milestone>
   </div>
 </template>
 
 <script lang="jsx">
-import { Milestone } from '@opentiny/vue'
+import { TinyMilestone } from '@opentiny/vue'
 
 export default {
   components: {
-    TinyMilestone: Milestone
+    TinyMilestone
   },
   data() {
     return {
-      // statusMap 对应 milestoneData的status；显示的背景色样式（可以是旗，可以是步骤条）
+      // statusMap 对应 milestoneData 的 status；显示的背景色样式（可以是旗，可以是步骤条）
       statusMap: {
         // 对应 status = completed
         completed: '#1890ff',
         // 对应 status = doing
-        doing: '#9ec591',
+        doing: '#e8faff',
         // 对应 status = back
-        back: '#97a7db',
+        back: '#edf7df',
         // 对应 status = end
         end: '#faad14',
         // 对应 status = cancel
-        cancel: '#d9d9d9'
+        cancel: '#f230301A'
       },
       // 数据源
       milestoneData: [
@@ -71,7 +71,7 @@ export default {
           flags: [
             {
               status: 'back',
-              content: '欢迎使用vui',
+              content: '欢迎使用 vui',
               name: 'test7'
             },
             {

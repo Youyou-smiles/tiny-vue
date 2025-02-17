@@ -3,7 +3,7 @@
     <tiny-grid
       :data="tableData"
       column-min-width="100"
-      auto-resize
+      show-overflow="tooltip"
       :column-anchor="columnAnchor"
       :optimization="{ scrollX: { gt: 20 } }"
       height="auto"
@@ -67,13 +67,13 @@
 </template>
 
 <script>
-import { Grid, GridColumn } from '@opentiny/vue'
+import { TinyGrid, TinyGridColumn } from '@opentiny/vue'
 import { IconMarkOn } from '@opentiny/vue-icon'
 
 export default {
   components: {
-    TinyGrid: Grid,
-    TinyGridColumn: GridColumn
+    TinyGrid,
+    TinyGridColumn
   },
   data() {
     return {
@@ -84,7 +84,7 @@ export default {
         [
           'employees',
           [
-            '雇员数量-自定义渲染',
+            '雇员数量 - 自定义渲染',
             ({ h, anchor: { active, field, label }, action }) =>
               h(
                 'div',
@@ -97,12 +97,13 @@ export default {
           ]
         ]
       ],
+
       tableData: [
         {
           id: '1',
-          name: 'GFD科技有限公司',
+          name: 'GFD 科技有限公司',
           address: '福州',
-          introduction: '公司技术和研发实力雄厚，是国家863项目的参与者，并被政府认定为“高新技术企业”。',
+          introduction: '公司技术和研发实力雄厚，是国家 863 项目的参与者，并被政府认定为“高新技术企业”。',
           employees: 800,
           name0: '1-name-0',
           name1: '1-name-1',
@@ -110,9 +111,9 @@ export default {
         },
         {
           id: '2',
-          name: 'WWW科技有限公司',
+          name: 'WWW 科技有限公司',
           address: '深圳福田区',
-          introduction: '公司技术和研发实力雄厚，是国家863项目的参与者，并被政府认定为“高新技术企业”。',
+          introduction: '公司技术和研发实力雄厚，是国家 863 项目的参与者，并被政府认定为“高新技术企业”。',
           employees: 300,
           name0: '2-name-0',
           name1: '2-name-1',
@@ -120,9 +121,9 @@ export default {
         },
         {
           id: '3',
-          name: 'RFV有限责任公司',
+          name: 'RFV 有限责任公司',
           address: '中山市',
-          introduction: '公司技术和研发实力雄厚，是国家863项目的参与者，并被政府认定为“高新技术企业”。',
+          introduction: '公司技术和研发实力雄厚，是国家 863 项目的参与者，并被政府认定为“高新技术企业”。',
           employees: 1300,
           name0: '3-name-0',
           name1: '3-name-1',

@@ -70,7 +70,7 @@ import {
   formatInputValue
 } from './index'
 import { dateMobileToggle, timeMobileToggle, dateToTimeArray, timeArrayToDate, timeMobileConfirm } from './mb'
-import { DATEPICKER } from '../common'
+import { DATEPICKER } from '@opentiny/utils'
 import type {
   IPickerProps,
   IPickerApi,
@@ -143,7 +143,7 @@ const initState = ({ api, reactive, vm, computed, props, utils, parent, breakpoi
     labelTooltip: '',
     displayOnlyTooltip: '',
     isDisplayOnly: computed(() => props.displayOnly || (parent.tinyForm || {}).displayOnly),
-    isMobileMode: computed(() => vm.$mode.includes('mobile')),
+    isMobileScreen: computed(() => breakpoint.current.value === 'default'),
     dateMobileOption: {
       visible: false,
       type: props.type,

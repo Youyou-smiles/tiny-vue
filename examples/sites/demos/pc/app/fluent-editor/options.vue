@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <tiny-fluent-editor v-model="content" :options="options"></tiny-fluent-editor>
-    内容：<br />
-    {{ content }}
-  </div>
+  <tiny-fluent-editor v-model="content" :options="options"></tiny-fluent-editor>
 </template>
 
 <script>
@@ -21,6 +17,7 @@ export default {
         modules: {
           // 工具栏
           toolbar: [
+            ['undo', 'redo', 'clean', 'format-painter'],
             ['bold', 'italic', 'underline', 'strike'],
             [{ list: 'bullet' }, { list: 'ordered' }],
             [{ align: '' }, { align: 'center' }, { align: 'right' }],

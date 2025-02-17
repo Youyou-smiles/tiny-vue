@@ -27,15 +27,15 @@
 </template>
 
 <script>
-import { Form, FormItem, Input, Button } from '@opentiny/vue'
+import { TinyForm, TinyFormItem, TinyInput, TinyButton } from '@opentiny/vue'
 import { iconError } from '@opentiny/vue-icon'
 
 export default {
   components: {
-    TinyForm: Form,
-    TinyFormItem: FormItem,
-    TinyInput: Input,
-    TinyButton: Button,
+    TinyForm,
+    TinyFormItem,
+    TinyInput,
+    TinyButton,
     TinyIconError: iconError()
   },
   data() {
@@ -52,12 +52,12 @@ export default {
             message: '必填',
             trigger: 'blur'
           },
-          { min: 2, max: 11, message: '长度必须不小于2', trigger: ['change', 'blur'] }
+          { min: 2, max: 11, message: '长度必须不小于 2', trigger: ['change', 'blur'] }
         ],
         age: { required: true },
         nickname: [
           { required: true, message: '昵称必填' },
-          { min: 2, max: 11, message: '昵称长度必须不小于2切不大于11', trigger: ['change', 'blur'] }
+          { min: 2, max: 11, message: '昵称长度必须不小于 2 切不大于 11', trigger: ['change', 'blur'] }
         ]
       }
     }

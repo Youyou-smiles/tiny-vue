@@ -157,7 +157,6 @@ import {
 } from '@opentiny/vue'
 import { iconStarActive, iconSelect } from '@opentiny/vue-icon'
 import Loading from '@opentiny/vue-loading'
-import designSmbConfig from '@opentiny/vue-design-smb'
 import designSaasConfig from '@opentiny/vue-design-saas'
 import { menuData, demoStr, demoVue, mds, demos } from './resourcePc.js'
 import { useTheme, useModeCtx } from './uses'
@@ -250,9 +249,11 @@ export default {
       await _switchDemo()
     }
     async function _switchDemo() {
+      if (!state.currDemo) {
+        return
+      }
       modeState.demoId = state.currDemo.demoId
       const path = `../../sites/demos/pc/app/${getPath(modeState.pathName)}/${state.currDemo?.codeFiles[0]}`
-
       // 查找源码  查找组件
       state.currDemoSrc = await demoStr[path]()
       const comp = await demoVue[path]()
@@ -263,10 +264,9 @@ export default {
       modeFn.pushToUrl()
     }
 
-    // 默认全部使用designSmbConfig，后续验收完毕再调整
     const designConfigMap = {
-      'tiny-smb-theme': designSmbConfig,
-      'tiny-aurora-theme': designSmbConfig
+      'tiny-smb-theme': {},
+      'tiny-aurora-theme': {}
     }
 
     const lastThemeKey = localStorage.getItem('tinyThemeToolkey')

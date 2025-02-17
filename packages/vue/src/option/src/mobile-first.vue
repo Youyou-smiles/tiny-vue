@@ -1,6 +1,7 @@
 <template>
   <div
     ref="option"
+    @mouseenter="hoverItem"
     @click.stop="selectOptionClick"
     @mousedown.stop=""
     :data-index="state.index"
@@ -19,7 +20,7 @@
         highlightClass
       )
     "
-    data-tag="tiny-select-dropdown-item"
+    data-tag="tiny-option"
   >
     <span v-if="state.selectMultiple" class="w-4 mr-2">
       <component

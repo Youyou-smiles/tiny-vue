@@ -28,8 +28,8 @@ import {
   observeCallback,
   handleDocumentClick
 } from './index'
-import userPopper from '../common/deps/vue-popper'
-import { guid } from '../common/string'
+import { userPopper } from '@opentiny/vue-hooks'
+import { guid } from '@opentiny/utils'
 import type { ISharedRenderlessParamHooks, ISharedRenderlessParamUtils } from 'types/shared.type'
 import type { ITooltipApi, ITooltipProps, ITooltipState } from 'types/tooltip.type'
 
@@ -143,6 +143,7 @@ export const renderless = (
   onUnmounted(() => {
     api.destroyed()
     api.observer && api.observer.disconnect()
+    vm.$off('tooltip-update')
   })
 
   return api

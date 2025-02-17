@@ -1,6 +1,6 @@
 <template>
   <div class="card-wrap">
-    <!-- 单选demo -->
+    <!-- 单选 demo -->
     <tiny-card-group v-model="radioValue" check-type="radio">
       <tiny-card
         id="smb-card"
@@ -25,7 +25,7 @@
       </tiny-card>
     </tiny-card-group>
 
-    <!-- 多选demo -->
+    <!-- 多选 demo -->
     <tiny-card-group v-model="checkboxValue" check-type="checkbox">
       <tiny-card
         id="smb-card"
@@ -53,13 +53,13 @@
 </template>
 
 <script>
-import { Card, CardGroup, Select } from '@opentiny/vue'
+import { TinyCard, TinyCardGroup, TinySelect } from '@opentiny/vue'
 
 export default {
   components: {
-    TinyCard: Card,
-    TinyCardGroup: CardGroup,
-    TinySelect: Select
+    TinyCard,
+    TinyCardGroup,
+    TinySelect
   },
   data() {
     return {
@@ -69,7 +69,7 @@ export default {
         {
           title: 'TinyVue',
           content: '^15.0.01',
-          imageSrc: 'https://res.hc-cdn.com/tinyui-design-common/1.0.7.20240711104855/assets/tinyvue.svg'
+          imageSrc: 'https://res.hc-cdn.com/tinyui-design-common/1.0.5.20240823150427/assets/tinyvue.svg'
         },
         {
           title: 'TinyNG',
@@ -114,7 +114,7 @@ export default {
   height: 80px;
   margin-right: 20px;
 }
-/* 业务功能demo */
+/* 业务功能 demo */
 .smb-card {
   display: inline-block;
   position: relative;

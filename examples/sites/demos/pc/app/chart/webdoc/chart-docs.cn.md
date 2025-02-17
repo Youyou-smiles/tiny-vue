@@ -14,7 +14,7 @@ yarn add @opentiny/vue
 
 ### 多组件引入
 
-`TinyChart`多组件引用即从依赖包 @opentiny/vue中引用多个组件,参考示例如下(以 `ChartLine` 和 `ChartBar` 组件为例):
+`TinyChart`多组件引用即从依赖包 @opentiny/vue 中引用多个组件，参考示例如下 (以 `ChartLine` 和 `ChartBar` 组件为例):
 
 ```html
 <template>
@@ -24,7 +24,7 @@ yarn add @opentiny/vue
   </div>
 </template>
 <script>
-  import { ChartLine, ChartBar } from '@opentiny/vue'
+  import { HuichartsLine, ChartBar } from '@opentiny/vue'
   export default {
     components: {
       TinyChartLine: ChartLine,
@@ -36,7 +36,7 @@ yarn add @opentiny/vue
 
 ### 单组件引入
 
-`TinyChart` 每个组件都可以独立安装、独立使用,即只安装单个组件的依赖并单独引用该组件，参考示例如下(以 `ChartLine`和`ChartBar` 组件为例):
+`TinyChart` 每个组件都可以独立安装、独立使用，即只安装单个组件的依赖并单独引用该组件，参考示例如下 (以 `ChartLine`和`ChartBar` 组件为例):
 
 ```html
 <template>
@@ -59,7 +59,7 @@ yarn add @opentiny/vue
 
 ### 完整引入
 
-完整引入组建后，可以通过 `type` 属性去获取想要的图表，我们并不推荐直接使用完整引入，这样会全量引入所有组件，无法实现按需加载。但如果确实有场景的需求，可以通过以下方式引用，参考示例如下(以 `ChartLine` 和 `ChartBar` 组件为例):
+完整引入组建后，可以通过 `type` 属性去获取想要的图表，我们并不推荐直接使用完整引入，这样会全量引入所有组件，无法实现按需加载。但如果确实有场景的需求，可以通过以下方式引用，参考示例如下 (以 `ChartLine` 和 `ChartBar` 组件为例):
 
 ```html
 <template>
@@ -69,7 +69,7 @@ yarn add @opentiny/vue
   </div>
 </template>
 <script>
-  import { Chart } from '@opentiny/vue'
+  import { Huicharts } from '@opentiny/vue'
   export default {
     components: {
       TinyChart: Chart
@@ -90,7 +90,7 @@ yarn add @opentiny/vue
   </div>
 </template>
 <script>
-  import { ChartLine, ChartBar } from '@opentiny/vue'
+  import { HuichartsLine, ChartBar } from '@opentiny/vue'
   export default {
     components: {
       TinyChartLine: ChartLine,

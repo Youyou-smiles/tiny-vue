@@ -10,7 +10,7 @@
  *
  */
 
-import { getObj } from '../common/object'
+import { getObj } from '@opentiny/utils'
 
 export const escapeRegexpString = (value = '') => String(value).replace(/[|\\{}()[\]^$+*?.]/g, '\\$&')
 
@@ -47,6 +47,14 @@ export const handleGroupDisabled =
   (val) => {
     state.groupDisabled = val
     vm.groupDisabled = val
+  }
+
+export const hoverItem =
+  ({ select, props, state }) =>
+  () => {
+    if (!props.disabled && !state.groupDisabled && !select.state.disabledOptionHover) {
+      select.state.hoverIndex = select.state.optionIndexArr.indexOf(state.index)
+    }
   }
 
 export const selectOptionClick =

@@ -15,7 +15,6 @@ import type {
   IInputState,
   ISharedRenderlessParamHooks,
   IInputRenderlessParamUtils,
-  IInputClassPrefixConstants,
   IInputEventNameConstants,
   IInputRenderlessParams
 } from '@/types'
@@ -57,7 +56,7 @@ import {
   handleTextareaMouseUp
 } from './index'
 import useStorageBox from '../tall-storage/vue-storage-box'
-import { on, off } from '../common/deps/dom'
+import { on, off } from '@opentiny/utils'
 
 export const api = [
   'blur',
@@ -195,15 +194,12 @@ const initApi = ({
   emit,
   vm,
   props,
-  CLASS_PREFIX,
   parent,
   nextTick
 }: Pick<
   IInputRenderlessParams,
   'api' | 'state' | 'dispatch' | 'broadcast' | 'emit' | 'refs' | 'props' | 'parent' | 'vm' | 'nextTick'
-> & {
-  CLASS_PREFIX: IInputClassPrefixConstants
-}) => {
+>) => {
   Object.assign(api, {
     state,
     dispatch,
@@ -214,7 +210,7 @@ const initApi = ({
     setShowMoreBtn: setShowMoreBtn({ state, vm }),
     handleChange: handleChange(emit),
     watchFormSelect: watchFormSelect({ emit, props, state }),
-    calcIconOffset: calcIconOffset({ CLASS_PREFIX, parent }),
+    calcIconOffset: calcIconOffset({ vm, parent }),
     getSuffixVisible: getSuffixVisible({ parent, props, state }),
     calculateNodeStyling: calculateNodeStyling(),
     handleCompositionStart: handleCompositionStart(state),
@@ -388,13 +384,9 @@ export const renderless = (
   const api = {} as IInputApi
   const componentName = constants.COMPONENT_NAME.FormItem
   const eventName: IInputEventNameConstants = { change: 'form.change', blur: 'form.blur' }
-  const CLASS_PREFIX: IInputClassPrefixConstants = {
-    Input: constants.inputMode(mode),
-    InputGroup: constants.inputGroupMode(mode)
-  }
   const state = initState({ reactive, computed, mode, props, parent, constants, api, vm, designConfig })
 
-  initApi({ api, state, dispatch, broadcast, emit, refs, props, CLASS_PREFIX, parent, vm, nextTick })
+  initApi({ api, state, dispatch, broadcast, emit, refs, props, parent, vm, nextTick })
 
   const storages = useStorageBox({ api, props, reactive, toRefs })
 
@@ -416,6 +408,10 @@ export const renderless = (
     if (props.type === 'textarea' && props.popupMore && state.isDisplayOnly) {
       api.setShowMoreBtn(true)
       on(window, 'resize', api.setShowMoreBtn)
+    }
+
+    if (vm.$attrs.autofocus) {
+      api.focus()
     }
   })
 

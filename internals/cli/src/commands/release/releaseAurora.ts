@@ -40,6 +40,7 @@ const findAllpage = (packagesPath) => {
       .replace(/"(.*?\/popup-manager)"/g, '"@aurora/renderless/common/deps/popup-manager"')
       // @opentiny/fluent-editor 包是与框架无关的包
       .replace(/@aurora\/fluent-editor/g, '@opentiny/fluent-editor')
+      .replace(/@aurora\/huicharts/g, '@opentiny/huicharts')
 
     // 解决当AUI只有一个mobile-first模板而TinyVue有多个模板，导致Linkjs加载不到多端模板的问题
     if (
@@ -54,7 +55,16 @@ const findAllpage = (packagesPath) => {
 }
 
 export const releaseAurora = () => {
-  const distLists = ['dist2/@aurora', 'renderless/dist', 'theme/dist', 'theme-mobile/dist', 'theme-saas/dist']
+  const distLists = [
+    'dist2/@aurora',
+    'renderless/dist',
+    'theme/dist',
+    'theme-saas/dist',
+    'utils/dist',
+    'utils/package.json',
+    'vue-hooks/dist',
+    'vue-hooks/package.json'
+  ]
   distLists.forEach((item) => {
     findAllpage(pathFromPackages(item))
   })

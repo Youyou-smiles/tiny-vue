@@ -2,7 +2,7 @@
   <div class="display-only">
     <p class="demp-input">输入框</p>
     <p>
-      <label>display-only & display-only-content：</label>
+      <label>display-only & display-only-content:</label>
       <tiny-input v-model="input" display-only display-only-content="display-only-content 的内容"></tiny-input>
     </p>
     <p>
@@ -17,18 +17,18 @@
       <tiny-input class="demp-input-dis" v-model="input1" type="textarea" display-only></tiny-input>
     </p>
     <p>
-      <label>display-only&autosize：</label>
+      <label>display-only & autosize:</label>
       <tiny-input class="demp-input-dis" v-model="input1" type="textarea" display-only autosize></tiny-input>
     </p>
   </div>
 </template>
 
 <script>
-import { Input } from '@opentiny/vue'
+import { TinyInput } from '@opentiny/vue'
 
 export default {
   components: {
-    TinyInput: Input
+    TinyInput
   },
   data() {
     return {

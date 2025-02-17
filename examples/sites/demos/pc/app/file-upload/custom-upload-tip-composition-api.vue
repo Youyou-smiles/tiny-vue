@@ -11,14 +11,14 @@
       <tiny-button>选取文件</tiny-button>
     </template>
     <template #tip>
-      <div class="tiny-upload__tip">只能上传 jpg/png 文件，且不超过500 kb</div>
+      <div class="tiny-upload__tip">只能上传 jpg/png 文件，且不超过 500 kb</div>
     </template>
   </tiny-file-upload>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { FileUpload as TinyFileUpload, Button as TinyButton } from '@opentiny/vue'
+import { TinyFileUpload, TinyButton } from '@opentiny/vue'
 
 const action = ref('http://localhost:3000/api/upload')
 const reUploadTip = (count) => `我是自定义重新上传的左侧提示，${count}个文件变红啦！`

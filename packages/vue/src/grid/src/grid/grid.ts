@@ -25,7 +25,7 @@
 
 import { isBoolean, toNumber } from '@opentiny/vue-renderless/grid/static/'
 import { getListeners, emitEvent } from '@opentiny/vue-renderless/grid/utils'
-import { extend } from '@opentiny/vue-renderless/common/object'
+import { extend } from '@opentiny/utils'
 import {
   h,
   emitter,
@@ -40,7 +40,7 @@ import {
 } from '@opentiny/vue-common'
 import TinyGridTable from '../table'
 import GlobalConfig from '../config'
-import debounce from '@opentiny/vue-renderless/common/deps/debounce'
+import { debounce } from '@opentiny/utils'
 
 const { themes, viewConfig } = GlobalConfig
 const { SAAS: T_SAAS } = themes
@@ -149,6 +149,12 @@ export default defineComponent({
         pageSize: 10,
         currentPage: 1
       },
+      tablePageLoading: false,
+      realTimeTablePage: {
+        total: 0,
+        pageSize: 10,
+        currentPage: 1
+      },
       columnAnchorParams: {},
       columnAnchorKey: '',
       tasks: {},
@@ -175,9 +181,9 @@ export default defineComponent({
       return this.size || (this.$parent && this.$parent.size) || (this.$parent && this.$parent.vSize)
     },
     seqIndex() {
-      let { seqSerial, scrollLoad, pagerConfig, startIndex } = this
+      let { seqSerial, scrollLoad, pagerConfig: oldPage, startIndex, tablePageLoading, realTimeTablePage } = this
       let seqIndexValue = startIndex
-
+      const pagerConfig = tablePageLoading ? realTimeTablePage : oldPage
       if ((seqSerial || scrollLoad) && pagerConfig) {
         seqIndexValue = (pagerConfig.currentPage - 1) * pagerConfig.pageSize + startIndex
       }
@@ -515,7 +521,8 @@ export default defineComponent({
     },
     // 监听某个元素是否出现在视口中
     addIntersectionObserver() {
-      if (this.intersectionOption && this.intersectionOption.disabled) return
+      if ((this.intersectionOption && this.intersectionOption.disabled) || typeof IntersectionObserver === 'undefined')
+        return
 
       this.intersectionObserver = new IntersectionObserver((entries) => {
         let entry = entries[0]

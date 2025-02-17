@@ -146,8 +146,8 @@
         </div>
       </div>
       <div class="tiny-tree__del-footer">
-        <tiny-button @click="cancelDelete">{{ t('ui.base.cancel') }}</tiny-button>
-        <tiny-button type="primary" @click="deleteAction">{{ t('ui.base.confirm') }}</tiny-button>
+        <tiny-button @click="cancelDelete" size="mini">{{ t('ui.base.cancel') }}</tiny-button>
+        <tiny-button type="primary" @click="deleteAction" size="mini">{{ t('ui.base.confirm') }}</tiny-button>
       </div>
     </tiny-popover>
   </div>
@@ -161,7 +161,7 @@ import Switch from '@opentiny/vue-switch'
 import Popover from '@opentiny/vue-popover'
 import Button from '@opentiny/vue-button'
 import Checkbox from '@opentiny/vue-checkbox'
-import Clickoutside from '@opentiny/vue-renderless/common/deps/clickoutside'
+import { Clickoutside } from '@opentiny/vue-directive'
 import TreeNode from './tree-node.vue'
 import Radio from '@opentiny/vue-radio'
 import { HighlightQuery } from '@opentiny/vue-directive'

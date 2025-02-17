@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-template-shadow -->
 <!--
 * Copyright (c) 2022 - present TinyVue Authors.
 * Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
@@ -136,9 +137,6 @@
           class="tiny-grid-custom__footer"
           :dir="TinyTheme === 'saas' ? 'rtl' : 'ltr'"
         >
-          <tiny-button type="primary" @click="saveSettings" :disabled="saveDisabled">
-            {{ t('ui.grid.individuation.saveBtn') }}
-          </tiny-button>
           <tiny-button @click="handleReset">
             {{ t('ui.grid.individuation.resetBtn') }}
           </tiny-button>
@@ -147,6 +145,9 @@
           }}</tiny-button>
           <tiny-button @click="cancelSettings">
             {{ t('ui.grid.individuation.cancelBtn') }}
+          </tiny-button>
+          <tiny-button type="primary" @click="saveSettings" :disabled="saveDisabled">
+            {{ t('ui.grid.individuation.saveBtn') }}
           </tiny-button>
         </div>
       </div>
@@ -177,7 +178,7 @@ import Tabs from '@opentiny/vue-tabs'
 import TabItem from '@opentiny/vue-tab-item'
 import Option from '@opentiny/vue-option'
 import CustomSwitch from './custom-switch.vue'
-import { extend } from '@opentiny/vue-renderless/common/object'
+import { extend } from '@opentiny/utils'
 import { $props, defineComponent, appProperties } from '@opentiny/vue-common'
 
 export default defineComponent({

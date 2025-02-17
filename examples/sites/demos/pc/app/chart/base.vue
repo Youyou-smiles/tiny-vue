@@ -13,7 +13,7 @@
 
     <h3 class="title">饼图</h3>
     <br />
-    <tiny-button style="margin-bottom: 20px" @click="switchColorMode">color-mode切换</tiny-button>
+    <tiny-button style="margin-bottom: 20px" @click="switchColorMode">color-mode 切换</tiny-button>
     <div class="content">
       <tiny-chart
         type="ring"
@@ -27,12 +27,12 @@
 </template>
 
 <script lang="jsx">
-import { Chart, Button } from '@opentiny/vue'
+import { TinyHuicharts, TinyButton } from '@opentiny/vue'
 
 export default {
   components: {
-    TinyChart: Chart,
-    TinyButton: Button
+    TinyChart: TinyHuicharts,
+    TinyButton
   },
   methods: {
     switchTheme() {
@@ -62,18 +62,18 @@ export default {
           icon: 'line'
         },
         data: [
-          { 'Month': 'Jan', 'Domestics': 33, 'Abroad': 37 },
-          { 'Month': 'Feb', 'Domestics': 27, 'Abroad': 39 },
-          { 'Month': 'Mar', 'Domestics': 31, 'Abroad': 20 },
-          { 'Month': 'Apr', 'Domestics': 30, 'Abroad': 15 },
-          { 'Month': 'May', 'Domestics': 37, 'Abroad': 13 },
-          { 'Month': 'Jun', 'Domestics': 36, 'Abroad': 17 },
-          { 'Month': 'Jul', 'Domestics': 42, 'Abroad': 22 },
-          { 'Month': 'Aug', 'Domestics': 22, 'Abroad': 12 },
-          { 'Month': 'Sep', 'Domestics': 17, 'Abroad': 30 },
-          { 'Month': 'Oct', 'Domestics': 40, 'Abroad': 33 },
-          { 'Month': 'Nov', 'Domestics': 42, 'Abroad': 22 },
-          { 'Month': 'Dec', 'Domestics': 32, 'Abroad': 11 }
+          { Month: 'Jan', Domestics: 33, Abroad: 37 },
+          { Month: 'Feb', Domestics: 27, Abroad: 39 },
+          { Month: 'Mar', Domestics: 31, Abroad: 20 },
+          { Month: 'Apr', Domestics: 30, Abroad: 15 },
+          { Month: 'May', Domestics: 37, Abroad: 13 },
+          { Month: 'Jun', Domestics: 36, Abroad: 17 },
+          { Month: 'Jul', Domestics: 42, Abroad: 22 },
+          { Month: 'Aug', Domestics: 22, Abroad: 12 },
+          { Month: 'Sep', Domestics: 17, Abroad: 30 },
+          { Month: 'Oct', Domestics: 40, Abroad: 33 },
+          { Month: 'Nov', Domestics: 42, Abroad: 22 },
+          { Month: 'Dec', Domestics: 32, Abroad: 11 }
         ],
         xAxis: {
           data: 'Month'
@@ -89,18 +89,18 @@ export default {
           icon: 'line'
         },
         data: [
-          { 'Month': 'Jan', 'Domestics': 33, 'Abroad': 37 },
-          { 'Month': 'Feb', 'Domestics': 27, 'Abroad': 39 },
-          { 'Month': 'Mar', 'Domestics': 31, 'Abroad': 20 },
-          { 'Month': 'Apr', 'Domestics': 30, 'Abroad': 15 },
-          { 'Month': 'May', 'Domestics': 37, 'Abroad': 13 },
-          { 'Month': 'Jun', 'Domestics': 36, 'Abroad': 17 },
-          { 'Month': 'Jul', 'Domestics': 42, 'Abroad': 22 },
-          { 'Month': 'Aug', 'Domestics': 22, 'Abroad': 12 },
-          { 'Month': 'Sep', 'Domestics': 17, 'Abroad': 30 },
-          { 'Month': 'Oct', 'Domestics': 40, 'Abroad': 33 },
-          { 'Month': 'Nov', 'Domestics': 42, 'Abroad': 22 },
-          { 'Month': 'Dec', 'Domestics': 32, 'Abroad': 11 }
+          { Month: 'Jan', Domestics: 33, Abroad: 37 },
+          { Month: 'Feb', Domestics: 27, Abroad: 39 },
+          { Month: 'Mar', Domestics: 31, Abroad: 20 },
+          { Month: 'Apr', Domestics: 30, Abroad: 15 },
+          { Month: 'May', Domestics: 37, Abroad: 13 },
+          { Month: 'Jun', Domestics: 36, Abroad: 17 },
+          { Month: 'Jul', Domestics: 42, Abroad: 22 },
+          { Month: 'Aug', Domestics: 22, Abroad: 12 },
+          { Month: 'Sep', Domestics: 17, Abroad: 30 },
+          { Month: 'Oct', Domestics: 40, Abroad: 33 },
+          { Month: 'Nov', Domestics: 42, Abroad: 22 },
+          { Month: 'Dec', Domestics: 32, Abroad: 11 }
         ],
         xAxis: {
           data: 'Month'

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>场景1：只显示图标</p>
+    <p>场景 1：显示图标</p>
     <tiny-action-menu
       class="custom-icon"
       :options="options"
@@ -11,23 +11,20 @@
     >
     </tiny-action-menu>
     <br />
-    <tiny-action-menu :options="options" :suffix-icon="tinyIconEllipsis" more-text="" spacing="8px" :max-show-num="3">
-    </tiny-action-menu>
-    <br />
-    <p>场景2：只显示文本</p>
+    <p>场景 2：只显示文本</p>
     <tiny-action-menu :options="options1" :show-icon="false" :max-show-num="3"> </tiny-action-menu>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { ActionMenu as TinyActionMenu } from '@opentiny/vue'
-import { IconPreChecked, iconSuccessful, iconCloseSquare, iconEllipsis } from '@opentiny/vue-icon'
+import { TinyActionMenu } from '@opentiny/vue'
+import { iconWebPlus, iconSuccessful, iconShutdown, iconEllipsis } from '@opentiny/vue-icon'
 
 const options = ref([
   {
     label: '远程登陆',
-    icon: IconPreChecked()
+    icon: iconWebPlus()
   },
   {
     label: '开机',
@@ -35,14 +32,14 @@ const options = ref([
   },
   {
     label: '关机',
-    icon: iconCloseSquare()
+    icon: iconShutdown()
   },
   {
     label: '重启'
   },
   {
     label: '网络设置',
-    children: [{ label: '更改安全组' }, { label: '切换VPC', divided: true }]
+    children: [{ label: '更改安全组' }, { label: '切换 VPC' }]
   }
 ])
 
@@ -61,7 +58,7 @@ const options1 = ref([
   },
   {
     label: '网络设置',
-    children: [{ label: '更改安全组' }, { label: '切换VPC', divided: true }]
+    children: [{ label: '更改安全组' }, { label: '切换 VPC', divided: true }]
   }
 ])
 
